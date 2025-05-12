@@ -1,0 +1,25 @@
+{
+  "name": "odin",
+  "version": "1989.6.4",
+  "description": "",
+  "main": "main.mjs",
+  "bin": "main.mjs",
+  "type": "module",
+  "engines": {
+    "node": ">=17.x"
+  },
+  "scripts": {
+    "start": "node --no-deprecation main.mjs",
+    "test": "rm -rf test/submit && npm start test/index.html",
+    "updep": "npx ncu -u && npm install && npm run pub_uti && ( git commit -am 'update dependencies' || true )",
+    "build": "sh ./build.sh",
+    "prepublishOnly": "echo DANGEROUS! DO NOT publish this package! && false",
+    "pub_uti": "cp ./node_modules/utilitas/dist/utilitas.lite.mjs ./CedarInit/"
+  },
+  "author": "Leask Wong<i@leaskh.com>",
+  "license": "MIT",
+  "dependencies": {
+    "node-html-parser": "^6.1.13",
+    "utilitas": "^1996.1.19"
+  }
+}

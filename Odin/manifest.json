@@ -1,0 +1,37 @@
+{
+    "name": "Odin",
+    "description": "Odin Chrome Extension",
+    "version": "1989.6.4",
+    "manifest_version": 3,
+    "icons": {
+        "500": "icon.png"
+    },
+    "background": {
+        "service_worker": "background.mjs"
+    },
+    "permissions": [
+        "activeTab",
+        "scripting",
+        "storage"
+    ],
+    "content_scripts": [
+        {
+            "matches": [
+                "http://*/*",
+                "https://*/*",
+                "file:///*/*"
+            ],
+            "css": [
+                "index.css"
+            ],
+            "js": [
+                "jquery.min.js",
+                "utilitas.lite.mjs",
+                "content_scripts.mjs"
+            ]
+        }
+    ],
+    "action": {
+        "default_popup": "popup.html"
+    }
+}
